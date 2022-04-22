@@ -31,6 +31,26 @@ DriverEntry(
 
 _Use_decl_annotations_
 NTSTATUS
+SpecialDriverEntry(
+	PDRIVER_OBJECT     driverObject,
+	PUNICODE_STRING    registryPath)
+{
+
+	// For Map
+	
+	NTSTATUS                status = STATUS_SUCCESS;
+	WDF_DRIVER_CONFIG       config;
+
+	WDF_DRIVER_CONFIG_INIT(&config, DriverEvtDeviceAdd);
+
+	status = WdfDriverCreate(driverObject, registryPath, WDF_NO_OBJECT_ATTRIBUTES, &config, WDF_NO_HANDLE);
+
+	return status;
+	
+}
+
+_Use_decl_annotations_
+NTSTATUS
 DriverEvtDeviceAdd(
 	_In_ WDFDRIVER            driver,
 	_Inout_ PWDFDEVICE_INIT   deviceInit)
