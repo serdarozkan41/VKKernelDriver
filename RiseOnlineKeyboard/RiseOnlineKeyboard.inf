@@ -1,0 +1,87 @@
+;
+; RiseOnlineKeyboard.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=RiseOnlineKeyboard.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+RiseOnlineKeyboard_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+RiseOnlineKeyboard.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%RiseOnlineKeyboard.DeviceDesc%=RiseOnlineKeyboard_Device, Root\RiseOnlineKeyboard ; TODO: edit hw-id
+
+[RiseOnlineKeyboard_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+RiseOnlineKeyboard.sys
+
+;-------------- Service installation
+[RiseOnlineKeyboard_Device.NT.Services]
+AddService = RiseOnlineKeyboard,%SPSVCINST_ASSOCSERVICE%, RiseOnlineKeyboard_Service_Inst
+
+; -------------- RiseOnlineKeyboard driver install sections
+[RiseOnlineKeyboard_Service_Inst]
+DisplayName    = %RiseOnlineKeyboard.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\RiseOnlineKeyboard.sys
+
+;
+;--- RiseOnlineKeyboard_Device Coinstaller installation ------
+;
+
+[RiseOnlineKeyboard_Device.NT.CoInstallers]
+AddReg=RiseOnlineKeyboard_Device_CoInstaller_AddReg
+CopyFiles=RiseOnlineKeyboard_Device_CoInstaller_CopyFiles
+
+[RiseOnlineKeyboard_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[RiseOnlineKeyboard_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[RiseOnlineKeyboard_Device.NT.Wdf]
+KmdfService =  RiseOnlineKeyboard, RiseOnlineKeyboard_wdfsect
+[RiseOnlineKeyboard_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "RiseOnlineKeyboard Installation Disk"
+RiseOnlineKeyboard.DeviceDesc = "RiseOnlineKeyboard Device"
+RiseOnlineKeyboard.SVCDESC = "RiseOnlineKeyboard Service"
