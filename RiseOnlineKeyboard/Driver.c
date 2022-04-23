@@ -56,6 +56,7 @@ DriverEvtDeviceAdd(
 	_Inout_ PWDFDEVICE_INIT   deviceInit)
 {
 	UNREFERENCED_PARAMETER(driver);
+	KdPrintEx((0, 0, "[UnLoaded] Driver has been unloaded!"));
 	return DeviceCreate(deviceInit);
 }
 
