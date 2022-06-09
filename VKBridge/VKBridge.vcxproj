@@ -24,6 +24,7 @@
     <ProjectGuid>{d1091534-ff54-4bb2-a4f3-b9645cf2ffa7}</ProjectGuid>
     <RootNamespace>RiseOnlineBridge</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>VKKernelDriverBridge</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -143,7 +144,7 @@
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Registry.cpp" />
-    <ClCompile Include="RiseOnlineBridge.cpp" />
+    <ClCompile Include="vkBridge.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Device.h" />

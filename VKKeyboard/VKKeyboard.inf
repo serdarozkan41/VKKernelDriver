@@ -3,7 +3,7 @@ Signature="$WINDOWS NT$"
 Class=%ClassName%
 ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171}
 Provider=%ProviderName%
-CatalogFile=RiseOnlineKeyboard.cat
+CatalogFile=VKKernelDriverKeyboard.cat
 DriverVer=4/22/2022
 PnpLockdown=1
 
@@ -16,42 +16,42 @@ HKR,,Icon,,-24
 [SourceDisksNames]
 1=%DiskName%,,,
 [SourceDisksFiles]
-RiseOnlineKeyboard.sys=1
+VKKernelDriverKeyboard.sys=1
 [DestinationDirs]
 DefaultDestDir=12
 
 [Manufacturer]
 %ManufacturerName%=Microsoft,NT$ARCH$
 [Microsoft.NT$ARCH$]
-%DeviceName%=RiseOnlineKeyboardDevice,root\RiseOnlineKeyboard
+%DeviceName%=VKKernelDriverKeyboardDevice,root\VKKernelDriverKeyboard
 
-[RiseOnlineKeyboardDevice.NT]
+[VKKernelDriverKeyboardDevice.NT]
 CopyFiles=Files
 [Files]
-RiseOnlineKeyboard.sys
+VKKernelDriverKeyboard.sys
 
-[RiseOnlineKeyboardDevice.NT.HW]
+[VKKernelDriverKeyboardDevice.NT.HW]
 AddReg=HWAddReg
 [HWAddReg]
-HKR,,"LowerFilters",0x00010008,"RiseOnlineKeyboard"
+HKR,,"LowerFilters",0x00010008,"VKKernelDriverKeyboard"
 
-[RiseOnlineKeyboardDevice.NT.Services]
-AddService=RiseOnlineKeyboard,0x00000000,RiseOnlineKeyboardService
+[VKKernelDriverKeyboardDevice.NT.Services]
+AddService=VKKernelDriverKeyboard,0x00000000,VKKernelDriverKeyboardService
 AddService=mshidkmdf,0x00000002,mshidkmdfService
-[RiseOnlineKeyboardService]
+[VKKernelDriverKeyboardService]
 DisplayName=%ServiceName%
 ServiceType=1
 StartType=3
 ErrorControl=1
-ServiceBinary=%12%\RiseOnlineKeyboard.sys
+ServiceBinary=%12%\VKKernelDriverKeyboard.sys
 [mshidkmdfService]
 ServiceType=1
 StartType=3
 ErrorControl=1
 ServiceBinary=%12%\mshidkmdf.sys
 
-[RiseOnlineKeyboardDevice.NT.Wdf]
-KmdfService=RiseOnlineKeyboard,KmdfLibrary
+[VKKernelDriverKeyboardDevice.NT.Wdf]
+KmdfService=VKKernelDriverKeyboard,KmdfLibrary
 [KmdfLibrary]
 KmdfLibraryVersion=$KMDFVERSION$
 

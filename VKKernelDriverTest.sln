@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32407.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RiseOnlineKeyboard", "RiseOnlineKeyboard\RiseOnlineKeyboard.vcxproj", "{455DA4EE-96CE-42F6-A551-28DE6594988C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VKKeyboard", "VKKeyboard\VKKeyboard.vcxproj", "{455DA4EE-96CE-42F6-A551-28DE6594988C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RiseOnlineBridge", "RiseOnlineBridge\RiseOnlineBridge.vcxproj", "{D1091534-FF54-4BB2-A4F3-B9645CF2FFA7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VKBridge", "VKBridge\VKBridge.vcxproj", "{D1091534-FF54-4BB2-A4F3-B9645CF2FFA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

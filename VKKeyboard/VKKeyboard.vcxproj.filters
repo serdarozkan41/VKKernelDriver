@@ -19,7 +19,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Inf Include="RiseOnlineKeyboard.inf">
+    <Inf Include="VKKeyboard.inf">
       <Filter>Driver Files</Filter>
     </Inf>
   </ItemGroup>
